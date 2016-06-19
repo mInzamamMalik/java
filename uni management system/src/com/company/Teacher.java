@@ -5,9 +5,9 @@ package com.company;
  */
 public class Teacher {
 
-    private String name;
-    private String department;
-    private String designation;
+    public String name;
+    public String department;
+    public String designation;
 
 
     public Teacher(String name,String department, String designation){
@@ -15,6 +15,18 @@ public class Teacher {
         this.department = department;
         this.designation = designation;
     }
+
+    public String getName(){
+        return name;
+    }
+    public String getDepartment(){
+        return department;
+    }
+    public String getDesignation(){
+        return designation;
+    }
+
+
 
 
 
