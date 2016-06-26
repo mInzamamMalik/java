@@ -14,7 +14,7 @@ public class Main {
         boolean loop = true;
         while (loop) {
 
-            print("Wellcome to Uni Management System");
+            print("\n\nWellcome to Uni Management System");
             print("");
             print("1. Add Teacher");
             print("2. Find Teacher");
@@ -33,16 +33,17 @@ public class Main {
                     break;
 
                 case 2:
+                    uni.findTeacher();
                     break;
 
                 case 3:
+                    uni.viewAllTeacher();
                     break;
                 case 4:
                     break;
                 case 5:
                     break;
                 case 6:
-                    uni.viewAllTeacher();
                     break;
                 case 7:
                     loop = false;
