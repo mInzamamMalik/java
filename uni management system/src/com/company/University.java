@@ -1,6 +1,6 @@
 package com.company;
 
-import java.util.Scanner;
+import java.util.*;
 
 
 public class University {
@@ -10,9 +10,8 @@ public class University {
     public University(String name) {
         this.name = name;
     }
+    private ArrayList<Teacher> Teachers = new ArrayList<Teacher>();
 
-    private int teacherLength = 0;
-    private Teacher[] Teachers = new Teacher[100];
 
     private int studentLength = 0;
     private Student[] Students = new Student[1000];
@@ -34,7 +33,7 @@ public class University {
         System.out.println("enter teacher Designation: (e.g: professor, lecturer or HOD)");
         teacherDesignation = input.next();
 
-        Teachers[teacherLength++] = new Teacher(teacherName, teacherDepartment, teacherDesignation);
+        Teachers.add( new Teacher(teacherName, teacherDepartment, teacherDesignation));
     }
 
 
@@ -42,8 +41,11 @@ public class University {
 
         System.out.println("Name \t Department \t Designation");
 
-        for (int i = 0; i < teacherLength; i++) {
-            System.out.println(Teachers[i].getName() + " \t " + Teachers[i].getDepartment() + " \t " + Teachers[i].getDesignation());
+
+
+
+        for (int i = 0; i < Teachers.size(); i++) {
+            System.out.println(Teachers.get(i).getName() + " \t " + Teachers.get(i).getDepartment() + " \t " + Teachers.get(i).getDesignation());
         }
     }
 
@@ -53,13 +55,13 @@ public class University {
         System.out.println("Enter KeyWord: ");
         CharSequence keyword = input.next();
 
-        for (int i = 0; i < teacherLength; i++) {
-            if (Teachers[i].getName().contains(keyword) || Teachers[i].getDesignation().contains(keyword) || Teachers[i].getDepartment().contains(keyword)) {
+        for (int i = 0; i < Teachers.size(); i++) {
+            if (Teachers.get(i).getName().contains(keyword) || Teachers.get(i).getDesignation().contains(keyword) || Teachers.get(i).getDepartment().contains(keyword)) {
                 if (header) {
                     System.out.println("Name \t Department \t Designation");
                     header = false;
                 }
-                System.out.println(Teachers[i].getName() + "  " + Teachers[i].getDepartment() + "  " + Teachers[i].getDesignation());
+                System.out.println(Teachers.get(i).getName() + "  " + Teachers.get(i).getDepartment() + "  " + Teachers.get(i).getDesignation());
             }
         }
         if (header) {
@@ -77,27 +79,31 @@ public class University {
 
         System.out.println("Suggestion: ");
 
-        for (int i = 0; i < teacherLength; i++) {
-            if (Teachers[i].getName() == keyword) {
+        for (int i = 0; i < Teachers.size(); i++) {
+            if (Teachers.get(i).getName() == keyword) {
 
-                System.out.println("Do you really want to delete " +Teachers[i].getName()+"?? (Y/N)");
+                System.out.println("Do you really want to delete " +Teachers.get(i).getName()+"?? (Y/N)");
                 if(input.next().equals("y")){
-
+                    Teachers.remove(i);
+                    System.out.println(Teachers.get(i).getName()+" is deleted from record");
+                    return;
                 }
             }
         }
 
 
-        for (int i = 0; i < teacherLength; i++) {
-            if (Teachers[i].getName().contains(keyword) || Teachers[i].getDesignation().contains(keyword) || Teachers[i].getDepartment().contains(keyword)) {
+        for (int i = 0; i < Teachers.size(); i++) {
+            if (Teachers.get(i).getName().contains(keyword) || Teachers.get(i).getDesignation().contains(keyword) || Teachers.get(i).getDepartment().contains(keyword)) {
                 if (header) {
-                    System.out.println("Name \t Department \t Designation");
+                    System.out.println("Suggestions: ");
                     header = false;
                 }
-                System.out.println(Teachers[i].getName() + "  " + Teachers[i].getDepartment() + "  " + Teachers[i].getDesignation());
+                System.out.println(Teachers.get(i).getName() + "  " + Teachers.get(i).getDepartment() + "  " + Teachers.get(i).getDesignation());
             }
         }
-        if (header)System.out.println("no teacher found with this name!!");
+        if (header) {
+            System.out.println("no teacher found with this name!!");
+        }
 
     }
 
