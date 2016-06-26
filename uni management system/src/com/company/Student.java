@@ -1,4 +1,5 @@
 package com.company;
+
 import java.util.Scanner;
 
 /**
@@ -11,13 +12,28 @@ public class Student {
     private String roll;
     private String majorSubject;
 
-    public Student(String name,String age, String roll,String major){
+    Student(String name, String age, String roll, String major) {
         this.name = name;
         this.age = age;
         this.roll = roll;
         this.majorSubject = major;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public String getRoll() {
+        return roll;
+    }
+
+    public String getMajorSubject() {
+        return majorSubject;
+    }
 
 
 }
