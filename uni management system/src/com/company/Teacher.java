@@ -5,30 +5,27 @@ package com.company;
  */
 public class Teacher {
 
-    public String name;
-    public String department;
-    public String designation;
+    private String name;
+    private String department;
+    private String designation;
 
 
-    public Teacher(String name,String department, String designation){
+    Teacher(String name, String department, String designation) {
         this.name = name;
         this.department = department;
         this.designation = designation;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
-    public String getDepartment(){
+
+    public String getDepartment() {
         return department;
     }
-    public String getDesignation(){
+
+    public String getDesignation() {
         return designation;
     }
-
-
-
-
-
-
+    
 }
