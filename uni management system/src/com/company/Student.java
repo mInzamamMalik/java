@@ -8,22 +8,22 @@ import java.util.Scanner;
 public class Student {
 
     private String name;
-    private String age;
+    private int age;
     private String roll;
     private String majorSubject;
 
-    Student(String name, String age, String roll, String major) {
-        this.name = name;
-        this.age = age;
-        this.roll = roll;
-        this.majorSubject = major;
+    Student(String name, int age, String roll, String major) {
+        name = name;
+        age = age;
+        roll = roll;
+        majorSubject = major;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 

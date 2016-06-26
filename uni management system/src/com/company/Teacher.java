@@ -27,5 +27,5 @@ public class Teacher {
     public String getDesignation() {
         return designation;
     }
-    
+
 }
